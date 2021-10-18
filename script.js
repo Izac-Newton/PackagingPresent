@@ -71,6 +71,9 @@ function Initialize() {
                     counter = 0;
                     score = 0;
                 }
+                if (e.offsetX > 450 && e.offsetX < 510 && e.offsetY > 550 && e.offsetY < 610) {
+                    SendTweet();
+                }
                 break;
             case "howto":
                 if (e.offsetX > 120 && e.offsetX < 180 && e.offsetY > 30 && e.offsetY < 90) {
@@ -344,4 +347,15 @@ function creditscreen() {
     context.fillText("企画 : ニュートン  マルモッテ", 400, 300);
     context.fillText("イラスト : マルモッテ", 400, 350);
     context.fillText("プログラム : Nattu.", 400, 400);
+}
+
+function SendTweet() {
+    //投稿内容
+    let texts = "ブリッツェンがプレゼントを" + score + "個梱包したよ！イヴ・サンタクロース総選挙応援特設ファンサイトはこちら！";
+    let hashtags = "イヴ・サンタクロース,イヴ世界一周";
+
+    //投稿画面を開く
+    let url = "https://twitter.com/share?hashtags=" + hashtags + "&text=" + texts;
+    window.open(url, "_blank");
+
 }
